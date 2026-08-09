@@ -1,0 +1,9 @@
+# Normalize line endings: LF in the repo and on checkout, on every OS.
+* text=auto eol=lf
+
+# Binary fixtures must never be line-ending-normalized.
+*.flac binary
+*.mp3 binary
+*.opus binary
+*.ogg binary
+*.m4a binary

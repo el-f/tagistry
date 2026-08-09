@@ -1,0 +1,52 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+    method: GET
+    uri: https://musicbrainz.org/ws/2/recording/3eea5cf7-feba-49bc-be94-1b155dbcb165?inc=artist-credits&fmt=json
+  response:
+    body:
+      string: '{"id":"3eea5cf7-feba-49bc-be94-1b155dbcb165","video":true,"artist-credit":[{"artist":{"id":"0383dadf-2a4e-4d10-a46a-e9e041da8eb3","type-id":"e431f5f6-b5d2-343d-8b36-72607fffb74b","name":"Queen","sort-name":"Queen","type":"Group","disambiguation":"UK
+        rock group","country":"GB"},"joinphrase":"","name":"Queen"}],"disambiguation":"","first-release-date":"1993","length":363106,"title":"Bohemian
+        Rhapsody"}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 02 Jul 2026 23:37:11 GMT
+      ETag:
+      - W/"57f24ca033ac6c47173e6af89d8d1ad1"
+      Keep-Alive:
+      - timeout=15
+      Server:
+      - Plack::Handler::Starlet
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      X-Cache-Status:
+      - MISS
+      X-RateLimit-Limit:
+      - '1200'
+      X-RateLimit-Remaining:
+      - '981'
+      X-RateLimit-Reset:
+      - '1783035432'
+      X-Runtime:
+      - '0.023276'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,157 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tagistry"
+version = "0.1.0"
+description = "A music tag-correction engine: detect, propose, verify, review, apply reversibly."
+readme = "README.md"
+requires-python = ">=3.13"
+# PEP 639 SPDX. "or-later" matters: mutagen's GPL-2.0-or-later and Apache-2.0 combine only under GPL-3.0.
+license = "GPL-2.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "el-f" }]
+keywords = [
+  "music",
+  "tags",
+  "metadata",
+  "musicbrainz",
+  "acoustid",
+  "id3",
+  "beets",
+  "scrobble",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: End Users/Desktop",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Multimedia :: Sound/Audio",
+  "Typing :: Typed",
+  "Topic :: Utilities",
+]
+dependencies = [
+  "mediafile>=0.13",
+  "mutagen>=1.47",
+  "pyacoustid>=1.3",
+  "requests>=2.32",
+  "requests-cache>=1.2",
+  "requests-ratelimiter>=0.7",
+  "tqdm>=4.66",
+  "typer>=0.12",
+]
+
+[project.urls]
+Repository = "https://github.com/el-f/tagistry"
+Issues = "https://github.com/el-f/tagistry/issues"
+Changelog = "https://github.com/el-f/tagistry/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+# MCP adapter: install with `[mcp]` to get the tagistry-mcp server.
+mcp = ["fastmcp>=3,<4"]
+
+# PEP 735, not an extra: the toolchain must not appear on the published page as a user install.
+[dependency-groups]
+dev = [
+  "fastmcp>=3,<4",
+  "ruff>=0.6",
+  "mypy>=1.11",
+  "pytest>=8.3",
+  "pytest-recording>=0.13",
+  "pytest-cov>=5.0",
+  "hypothesis>=6.100",
+  "mutmut>=3.2",
+  "types-requests",
+  "types-tqdm",
+]
+
+[project.scripts]
+tagistry = "tagistry.cli:main"
+tagistry-mcp = "tagistry.mcp_server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tagistry"]
+
+# Without an explicit sdist target hatchling ships the CI config and a 311 KB lockfile; tests/ stays.
+[tool.hatch.build.targets.sdist]
+include = ["src/", "tests/", "README.md", "CHANGELOG.md", "LICENSE", "pyproject.toml"]
+
+[tool.ruff]
+line-length = 120
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "F",
+  "I",
+  "UP",
+  "B",
+  "SIM",
+  "RUF",  # base: pyflakes, pycodestyle, imports, pyupgrade, bugbear
+  "C4",
+  "PIE",
+  "RET",
+  "PERF",
+  "FURB", # comprehensions, misc lints, returns, perf, refurbishment
+  "LOG",
+  "G",
+  "ISC",
+  "DTZ",  # logging hygiene, datetime tz-awareness
+  "S",    # bandit: subprocess/secret/random paths get flagged, not hidden
+  "PGH",  # blanket `# noqa` / `# type: ignore` must carry a code (fits strict-mypy)
+  "FLY",  # str.join over a literal tuple -> f-string
+  "RSE",  # no redundant parens on `raise X() from e`
+  "PLE",  # pylint's real-error set (e.g. bad string format, dup keys)
+]
+# EN/EM dashes are real characters in titles; ISC001 conflicts with the formatter (ruff's advice).
+ignore = ["RUF001", "RUF002", "RUF003", "ISC001"]
+
+[tool.ruff.lint.per-file-ignores]
+# Asserts ARE the test; a test file full of S101 is not a finding.
+"tests/**" = ["S101"]
+"scripts/**" = ["S101"]
+
+[tool.mypy]
+strict = true
+python_version = "3.13"
+files = ["src", "tests"]
+
+[[tool.mypy.overrides]]
+module = [
+  "acoustid.*",
+  "mediafile.*",
+  "requests_ratelimiter.*",
+  "requests_cache.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+# strict-markers/strict-config fail on typos; filterwarnings=error fails on any DeprecationWarning.
+addopts = "-q --strict-markers --strict-config"
+testpaths = ["tests"]
+filterwarnings = ["error"]
+
+[tool.coverage.run]
+branch = true         # measure branch coverage, not just line -- a bug on the untaken branch counts
+source = ["tagistry"]
+
+[tool.coverage.report]
+exclude_also = ["if TYPE_CHECKING:", "raise NotImplementedError"]
+
+[tool.mutmut]
+# Mutation testing on the pure logic, including the correctness arbiters (scrobble/policies/checks).
+source_paths = [
+  "src/tagistry/fixers.py",
+  "src/tagistry/text.py",
+  "src/tagistry/domain.py",
+  "src/tagistry/scrobble.py",
+  "src/tagistry/policies.py",
+  "src/tagistry/checks.py",
+]
+# mutmut copies the tree: without the whole package + tests the copy cannot import tagistry.providers.
+also_copy = ["src/tagistry", "tests", "pyproject.toml"]
+pytest_add_cli_args_test_selection = ["tests/"]

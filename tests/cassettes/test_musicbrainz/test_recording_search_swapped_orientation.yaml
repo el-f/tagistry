@@ -1,0 +1,56 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+    method: GET
+    uri: https://musicbrainz.org/ws/2/recording?query=recording%3A%22Shinedown%22+AND+artist%3A%2245%22&limit=1&fmt=json
+  response:
+    body:
+      string: '{"created":"2026-07-02T20:26:21.239Z","count":0,"offset":0,"recordings":[]}'
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '75'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 02 Jul 2026 20:26:21 GMT
+      Keep-Alive:
+      - timeout=15
+      X-Cache-Status:
+      - MISS
+      X-RateLimit-Limit:
+      - '1200'
+      X-RateLimit-Remaining:
+      - '898'
+      X-RateLimit-Reset:
+      - '1783023982'
+      content-security-policy:
+      - default-src 'none'; base-uri 'none'; connect-src 'self'; form-action 'self';
+        font-src 'self'; frame-ancestors 'none'; img-src 'self' data:; media-src 'self';
+        style-src 'self' 'unsafe-inline'; script-src 'self'; worker-src 'self';
+      etag:
+      - '"NmJhNGE2MDAwMDAwMDAwMFNvbHI="'
+      last-modified:
+      - Thu, 02 Jul 2026 20:25:30 GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

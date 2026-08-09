@@ -1,0 +1,70 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+    method: GET
+    uri: https://musicbrainz.org/ws/2/recording?query=recording%3A%22Karma+Police%22+AND+artist%3A%22Radiohead%22&limit=1&fmt=json
+  response:
+    body:
+      string: "{\"created\":\"2026-07-02T20:26:20.936Z\",\"count\":277,\"offset\":0,\"recordings\":[{\"id\":\"cab6f522-4fdf-41bb-b3af-5b93b899d062\",\"score\":100,\"artist-credit-id\":\"021661c1-84c5-30d7-9bb2-f0766affb734\",\"title\":\"Karma
+        Police\",\"disambiguation\":\"live, 2001-08-01: Hutchinson Field, Chicago,
+        IL, USA\",\"video\":null,\"artist-credit\":[{\"name\":\"Radiohead\",\"artist\":{\"id\":\"a74b1b7f-71a5-4011-9441-d0b5e4122711\",\"name\":\"Radiohead\",\"sort-name\":\"Radiohead\",\"aliases\":[{\"sort-name\":\"r/head\",\"type-id\":\"1937e404-b981-3cb7-8151-4c86ebfc8d8e\",\"name\":\"r/head\",\"locale\":null,\"type\":\"Search
+        hint\",\"primary\":null,\"begin-date\":null,\"end-date\":null},{\"sort-name\":\"\u7535\u53F0\u53F8\u4EE4\",\"type-id\":\"894afba6-2816-3c24-8072-eadb66bd04bc\",\"name\":\"\u7535\u53F0\u53F8\u4EE4\",\"locale\":\"zh\",\"type\":\"Artist
+        name\",\"primary\":true,\"begin-date\":null,\"end-date\":null},{\"sort-name\":\"\u308C\u3067\u3043\u304A\u3078\u3063\u3069\",\"type-id\":\"894afba6-2816-3c24-8072-eadb66bd04bc\",\"name\":\"\u30EC\u30C7\u30A3\u30AA\u30D8\u30C3\u30C9\",\"locale\":\"ja\",\"type\":\"Artist
+        name\",\"primary\":true,\"begin-date\":null,\"end-date\":null},{\"sort-name\":\"Radiohead
+        & Thom Yorke\",\"type-id\":\"1937e404-b981-3cb7-8151-4c86ebfc8d8e\",\"name\":\"Radiohead
+        & Thom Yorke\",\"locale\":null,\"type\":\"Search hint\",\"primary\":null,\"begin-date\":null,\"end-date\":null},{\"sort-name\":\"Radio
+        Head\",\"type-id\":\"1937e404-b981-3cb7-8151-4c86ebfc8d8e\",\"name\":\"Radio
+        Head\",\"locale\":null,\"type\":\"Search hint\",\"primary\":null,\"begin-date\":null,\"end-date\":null}]}}],\"releases\":[{\"id\":\"e5fc496a-bd36-4848-bd91-180de9e85bbe\",\"status-id\":\"1156806e-d06a-38bd-83f0-cf2284a808b9\",\"artist-credit-id\":\"021661c1-84c5-30d7-9bb2-f0766affb734\",\"count\":1,\"title\":\"2001-08-01:
+        Hutchinson Field, Chicago, IL, USA\",\"status\":\"Bootleg\",\"artist-credit\":[{\"name\":\"Radiohead\",\"artist\":{\"id\":\"a74b1b7f-71a5-4011-9441-d0b5e4122711\",\"name\":\"Radiohead\",\"sort-name\":\"Radiohead\"}}],\"release-group\":{\"id\":\"53bac4cb-4e44-368c-beed-caa37d690edc\",\"type-id\":\"6fd474e2-6b58-3102-9d17-d6f7eb7da0a0\",\"primary-type-id\":\"f529b476-6e62-324f-b0aa-1f3e33d313fc\",\"title\":\"2001-08-01:
+        Hutchinson Field, Chicago, IL, USA\",\"primary-type\":\"Album\",\"secondary-types\":[\"Live\"],\"secondary-type-ids\":[\"6fd474e2-6b58-3102-9d17-d6f7eb7da0a0\"]},\"track-count\":24,\"media\":[{\"id\":\"17c897df-62ac-3f8e-8356-c638b1f75b85\",\"position\":1,\"track\":[{\"id\":\"ca326516-d507-3c7a-b93e-d6641801ed00\",\"number\":\"4\",\"title\":\"Karma
+        Police\"}],\"track-count\":24,\"track-offset\":3}]}]}]}"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '899'
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 02 Jul 2026 20:26:20 GMT
+      Keep-Alive:
+      - timeout=15
+      X-Cache-Status:
+      - MISS
+      X-RateLimit-Limit:
+      - '1200'
+      X-RateLimit-Remaining:
+      - '1139'
+      X-RateLimit-Reset:
+      - '1783023982'
+      content-encoding:
+      - gzip
+      content-security-policy:
+      - default-src 'none'; base-uri 'none'; connect-src 'self'; form-action 'self';
+        font-src 'self'; frame-ancestors 'none'; img-src 'self' data:; media-src 'self';
+        style-src 'self' 'unsafe-inline'; script-src 'self'; worker-src 'self';
+      etag:
+      - '"ODE2ODE2MDAwMDAwMDAwMFNvbHI=--gzip"'
+      last-modified:
+      - Thu, 02 Jul 2026 20:25:30 GMT
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

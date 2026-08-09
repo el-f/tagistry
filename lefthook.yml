@@ -1,0 +1,5 @@
+# Full gate before a push. Install once with lefthook install; bypass with LEFTHOOK=0 git push.
+pre-push:
+  commands:
+    gate:
+      run: ./scripts/verify.sh

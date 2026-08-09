@@ -1,0 +1,67 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, zstd
+      Connection:
+      - keep-alive
+    method: GET
+    uri: https://musicbrainz.org/ws/2/recording?query=recording%3A%22Bohemian+Rhapsody%22+AND+artist%3A%22Queen%22&limit=1&fmt=json
+  response:
+    body:
+      string: "{\"created\":\"2026-07-03T09:58:04.150Z\",\"count\":223,\"offset\":0,\"recordings\":[{\"id\":\"a4803b45-0644-453f-aa1b-c762dc2f6941\",\"score\":100,\"artist-credit-id\":\"edbf1ee2-3861-3d95-b971-8f243cbc7e54\",\"title\":\"Bohemian
+        Rhapsody\",\"length\":130306,\"video\":null,\"artist-credit\":[{\"name\":\"Queen\",\"artist\":{\"id\":\"0383dadf-2a4e-4d10-a46a-e9e041da8eb3\",\"name\":\"Queen\",\"sort-name\":\"Queen\",\"disambiguation\":\"UK
+        rock group\",\"aliases\":[{\"sort-name\":\"\u7687\u540E\u4E50\u961F\",\"type-id\":\"894afba6-2816-3c24-8072-eadb66bd04bc\",\"name\":\"\u7687\u540E\u4E50\u961F\",\"locale\":\"zh_Hans_CN\",\"type\":\"Artist
+        name\",\"primary\":true,\"begin-date\":null,\"end-date\":null},{\"sort-name\":\"\u30AF\u30A4\u30FC\u30F3\",\"type-id\":\"894afba6-2816-3c24-8072-eadb66bd04bc\",\"name\":\"\u30AF\u30A4\u30FC\u30F3\",\"locale\":\"ja\",\"type\":\"Artist
+        name\",\"primary\":true,\"begin-date\":null,\"end-date\":null}]}}],\"releases\":[{\"id\":\"cd610c82-2f82-4606-914e-062560583513\",\"status-id\":\"1156806e-d06a-38bd-83f0-cf2284a808b9\",\"artist-credit-id\":\"edbf1ee2-3861-3d95-b971-8f243cbc7e54\",\"count\":1,\"title\":\"Rhapsody
+        in Red\",\"status\":\"Bootleg\",\"artist-credit\":[{\"name\":\"Queen\",\"artist\":{\"id\":\"0383dadf-2a4e-4d10-a46a-e9e041da8eb3\",\"name\":\"Queen\",\"sort-name\":\"Queen\",\"disambiguation\":\"UK
+        rock group\"}}],\"release-group\":{\"id\":\"2b563f6a-f705-3f3e-854d-aebe6d8edbc8\",\"type-id\":\"6fd474e2-6b58-3102-9d17-d6f7eb7da0a0\",\"primary-type-id\":\"f529b476-6e62-324f-b0aa-1f3e33d313fc\",\"title\":\"Rhapsody
+        in Red\",\"primary-type\":\"Album\",\"secondary-types\":[\"Live\"],\"secondary-type-ids\":[\"6fd474e2-6b58-3102-9d17-d6f7eb7da0a0\"]},\"track-count\":17,\"media\":[{\"id\":\"af76962f-20fc-3380-ab66-db055143ddc9\",\"position\":1,\"track\":[{\"id\":\"9b409d4a-8eef-39c4-98a2-ef2c116a67f5\",\"number\":\"8\",\"title\":\"Bohemian
+        Rhapsody\",\"length\":130306}],\"track-count\":17,\"track-offset\":7}]}]}]}"
+    headers:
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 03 Jul 2026 09:58:04 GMT
+      Keep-Alive:
+      - timeout=15
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Cache-Status:
+      - MISS
+      X-RateLimit-Limit:
+      - '1200'
+      X-RateLimit-Remaining:
+      - '689'
+      X-RateLimit-Reset:
+      - '1783072685'
+      content-security-policy:
+      - default-src 'none'; base-uri 'none'; connect-src 'self'; form-action 'self';
+        font-src 'self'; frame-ancestors 'none'; img-src 'self' data:; media-src 'self';
+        style-src 'self' 'unsafe-inline'; script-src 'self'; worker-src 'self';
+      etag:
+      - W/"ZGRiZjI2MDAwMDAwMDAwMFNvbHI="
+      last-modified:
+      - Fri, 03 Jul 2026 09:57:16 GMT
+      x-content-type-options:
+      - nosniff
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

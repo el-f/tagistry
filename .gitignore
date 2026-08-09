@@ -1,0 +1,27 @@
+.venv/
+__pycache__/
+*.pyc
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+
+# Chromaprint fpcalc binary (fingerprinting): local tool, ~4MB, platform-specific -- never commit.
+fpcalc
+fpcalc.exe
+.hypothesis/
+.coverage
+.coverage.*
+dist/
+*.egg-info/
+.mb_*cache.json
+/tmp/
+
+docs/
+
+# Change log + review CSVs carry real library file paths -- never commit (personal info).
+tagistry_changes.jsonl
+tagistry_*.csv
+*.jsonl
+*_cache*
+# Internal work list, not a public roadmap.
+BACKLOG.md

@@ -1,0 +1,31 @@
+name: mutation
+
+# Slow, and mutmut is Linux-only: on demand, not per-commit. Mutation score says a bug would be caught.
+on: workflow_dispatch
+
+permissions:
+  contents: read
+
+jobs:
+  mutmut:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          python-version: "3.13"
+          enable-cache: true
+      - run: uv sync --locked
+      # A non-zero exit means mutmut could not RUN; surviving mutants are reported by the next step.
+      - run: uv run mutmut run
+        continue-on-error: true
+      - name: Results
+        run: |
+          uv run mutmut results | tee results.txt
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          tail -40 results.txt >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          # "not checked" means the suite never ran in the copied tree -- success while measuring nothing.
+          ! grep -q 'not checked' results.txt || {
+            echo "::error::mutmut left mutants unchecked -- the run is broken, not clean"; exit 1; }
