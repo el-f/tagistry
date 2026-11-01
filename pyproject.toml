@@ -51,12 +51,12 @@ Changelog = "https://github.com/el-f/tagistry/blob/main/CHANGELOG.md"
 
 [project.optional-dependencies]
 # MCP adapter: install with `[mcp]` to get the tagistry-mcp server.
-mcp = ["fastmcp>=3,<4"]
+mcp = ["fastmcp>=3,<5"]
 
 # PEP 735, not an extra: the toolchain must not appear on the published page as a user install.
 [dependency-groups]
 dev = [
-  "fastmcp>=3,<4",
+  "fastmcp>=3,<5",
   "ruff>=0.6",
   "mypy>=1.11",
   "pytest>=8.3",
